@@ -1,5 +1,6 @@
 with
     fonte_funcionarios as (select * from {{ source("erp", "employees") }}),
+    
     renomear as (
         select
             cast(employee_id as int) as id_funcionario,
