@@ -1,20 +1,32 @@
-
 version: 2
-
 sources:
   - name: erp
     description: Fonte do ponto de vendas da Northwind.
     schema: erp_northwind
     tables:
-
       - name: employees
-        description: tabela com informações de funcionairos.
+        description: Tabela com informações de funcionários.
         columns:
           - name: employee_id
-            description: chave primária da tabela funcionários.
+            description: Chave primária da tabela funcionários.
             tests:
               - unique
               - not_null
-      
+      - name: orders
+        description: Uma linha por pedido. Inclui pedidos cancelados e deletados.
+        columns:
+          - name: order_id
+            description: Chave primária da tabela de ordens.
+            tests:
+              - unique
+              - not_null
+      - name: order_details
+        description: Detalhe de item linha para cada pedido da tabela ordens.
       - name: products
-      
+        description: Tabela com os produtos comercializados pela Northwind.
+      - name: categories
+        description: Tabela com as categorias dos produtos comercializados pela Northwind.
+      - name: suppliers
+        description: Fornecedores dos produtos comercializados pela Northwind.
+      - name: customers
+        description: Tabela com informações dos clientes da Northwind.
